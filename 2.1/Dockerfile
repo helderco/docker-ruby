@@ -1,4 +1,4 @@
-FROM ruby:2.1
+FROM ruby:2.1.6
 
 # Set the locale
 RUN apt-get update -qq \
