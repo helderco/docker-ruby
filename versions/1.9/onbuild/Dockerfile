@@ -1,4 +1,4 @@
-FROM helder/ruby:1.9.3
+FROM helder/ruby:1.9
 MAINTAINER Helder Correia <me@heldercorreia.com>
 
 ONBUILD COPY Gemfile* /
