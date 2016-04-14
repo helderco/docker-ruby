@@ -1,4 +1,4 @@
-FROM ruby:{{ version }}-slim
+FROM ruby:{{ version }}
 MAINTAINER Helder Correia <me@heldercorreia.com>
 
 # set the locale

@@ -19,9 +19,3 @@ for version in "${versions[@]}"; do
       sed -i '' -e 's/{{ version }}/'$version'/g' versions/$version/onbuild/Dockerfile
     )
 done
-
-echo "Fix Ruby 1.9"
-(
-  set -x;
-  sed -i '' -e '1s/.*/FROM ruby:1.9/' versions/1.9/Dockerfile
-)
