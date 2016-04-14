@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Change uid and gid of www-data so it matches ownership of current dir
+# Change uid and gid of ruby user so it matches ownership of current dir
 if [ -z ${UNMAP_RUBY_UID+x} ]; then
     uid=$(stat -c '%u' "$PWD")
     gid=$(stat -c '%g' "$PWD")

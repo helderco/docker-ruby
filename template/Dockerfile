@@ -1,19 +1,10 @@
 FROM ruby:{{ version }}
 MAINTAINER Helder Correia <me@heldercorreia.com>
 
-# set the locale
-RUN apt-get update -qq \
- && apt-get install locales -y \
- && dpkg-reconfigure locales \
- && locale-gen C.UTF-8 \
- && update-locale LANG=C.UTF-8 \
- && echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen \
- && locale-gen \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-ENV LC_ALL C.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
+# make the "en_US.UTF-8" locale so ruby will be utf-8 enabled by default
+RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
 
 # grab gosu for easy step-down from root
 ENV GOSU_VERSION 1.7
