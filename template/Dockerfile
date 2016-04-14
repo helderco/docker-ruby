@@ -18,8 +18,8 @@ RUN set -x \
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true
 
-# explicitly set user/group IDs
-RUN groupadd -r ruby --gid=999 && useradd -r -g ruby --uid=999 ruby
+# create unprivileged user
+RUN groupadd -r ruby && useradd -m -r -g ruby ruby
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
