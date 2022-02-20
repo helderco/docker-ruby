@@ -1,4 +1,4 @@
-# Ruby
+# Ruby (DEPRECATED)
 
 Based on [official ruby](https://registry.hub.docker.com/_/ruby/) image, but adds UTF-8 locale, gosu and entrypoint to map a new `ruby` user's uid and gid to a volume's onwer.
 
